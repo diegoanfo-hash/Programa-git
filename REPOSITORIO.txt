@@ -1,0 +1,10 @@
+GA7-220501096 - Modulos de Software
+Autor: Diego Andrés Fonseca
+Fecha: 2026-11-06
+
+REPOSITORIO
+https://github.com/diegoanfo-hash/Programa-git
+
+CONTENIDO
+AA2-EV01/ - Modulo JDBC con operaciones CRUD (InventarioDB)
+AA2-EV02/ - Modulo Web Servlets + JSP con pruebas JUnit 5 (InventarioWeb)
