@@ -1,0 +1,6 @@
+GA7-220501096-AA4-EV02 - Componente frontend con React
+Autor: Diego Andrés Fonseca
+Fecha: 2026-11-08
+
+REPOSITORIO
+https://github.com/diegoanfo-hash/Programa-git

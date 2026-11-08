@@ -1,0 +1,78 @@
+GA7-220501096-AA5-EV01 - Documentacion de la API REST
+Autor: Diego Andrés Fonseca
+
+URL BASE: http://localhost:8080/api
+
+============================
+ENDPOINT 1: Listar materias primas
+============================
+Metodo:  GET
+URL:     /api/materias
+Descripcion: Obtiene la lista completa de materias primas del inventario.
+Parametros:  Ninguno
+Respuesta:   200 OK
+  [
+    {
+      "id": 1,
+      "nombre": "Lamina de acero",
+      "unidad": "kg",
+      "cantidadActual": 150,
+      "cantidadMinima": 50
+    },
+    ...
+  ]
+
+============================
+ENDPOINT 2: Obtener una materia prima
+============================
+Metodo:  GET
+URL:     /api/materias/{id}
+Descripcion: Obtiene el detalle de una materia prima por su ID.
+Parametros:  id (en la URL) - identificador del registro
+Respuesta:   200 OK con el objeto JSON
+             404 Not Found si el ID no existe
+
+============================
+ENDPOINT 3: Crear materia prima
+============================
+Metodo:  POST
+URL:     /api/materias
+Descripcion: Registra una nueva materia prima en el inventario.
+Cabeceras:   Content-Type: application/json
+Body:
+  {
+    "nombre": "Perfil de aluminio",
+    "unidad": "ml",
+    "cantidadActual": 200,
+    "cantidadMinima": 60
+  }
+Respuesta:   201 Created con el objeto creado (incluye el ID generado)
+
+============================
+ENDPOINT 4: Actualizar materia prima
+============================
+Metodo:  PUT
+URL:     /api/materias/{id}
+Descripcion: Modifica los datos de una materia prima existente.
+Parametros:  id (en la URL) - identificador del registro
+Cabeceras:   Content-Type: application/json
+Body:        Misma estructura que POST
+Respuesta:   200 OK con el objeto actualizado
+             404 Not Found si el ID no existe
+
+============================
+ENDPOINT 5: Eliminar materia prima
+============================
+Metodo:  DELETE
+URL:     /api/materias/{id}
+Descripcion: Elimina una materia prima del inventario.
+Parametros:  id (en la URL) - identificador del registro
+Respuesta:   204 No Content si se elimino correctamente
+             404 Not Found si el ID no existe
+
+============================
+COMO EJECUTAR
+============================
+1. mvn spring-boot:run
+2. La API queda disponible en http://localhost:8080/api/materias
+3. Consola H2: http://localhost:8080/h2-console

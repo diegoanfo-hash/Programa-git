@@ -1,0 +1,10 @@
+GA7-220501096-AA5-EV02 - Pruebas de la API con Postman
+Autor: Diego Andrés Fonseca
+Fecha: 2026-11-08
+
+REPOSITORIO
+https://github.com/diegoanfo-hash/Programa-git
+
+NOTA: Esta evidencia incluye un video demostrando las pruebas de cada endpoint
+con Postman. El video fue grabado ejecutando el servidor Spring Boot (AA5-EV01)
+y lanzando cada petición de la colección InventarioAPI_postman_collection.json.

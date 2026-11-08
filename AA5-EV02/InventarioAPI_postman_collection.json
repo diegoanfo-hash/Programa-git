@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "InventarioAPI - GA7-220501096-AA5-EV02",
+    "description": "Coleccion de pruebas Postman para la API de inventario. Autor: Diego Andrés Fonseca",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Listar todas las materias primas",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/materias",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias"]
+        },
+        "description": "Obtiene la lista completa de materias primas del inventario."
+      }
+    },
+    {
+      "name": "2. Obtener materia prima por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/materias/1",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias", "1"]
+        },
+        "description": "Obtiene una materia prima especifica por su ID."
+      }
+    },
+    {
+      "name": "3. Crear nueva materia prima",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8080/api/materias",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Perfil de aluminio\",\n  \"unidad\": \"ml\",\n  \"cantidadActual\": 200,\n  \"cantidadMinima\": 60\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Registra una nueva materia prima. Retorna 201 con el objeto creado."
+      }
+    },
+    {
+      "name": "4. Actualizar materia prima",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:8080/api/materias/1",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias", "1"]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Lamina de acero galvanizado\",\n  \"unidad\": \"kg\",\n  \"cantidadActual\": 120,\n  \"cantidadMinima\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "Actualiza todos los campos de una materia prima. Retorna 200 con el objeto actualizado."
+      }
+    },
+    {
+      "name": "5. Eliminar materia prima",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/materias/3",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias", "3"]
+        },
+        "description": "Elimina una materia prima por su ID. Retorna 204 si se elimino correctamente."
+      }
+    },
+    {
+      "name": "6. Obtener ID inexistente (prueba 404)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/materias/999",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "materias", "999"]
+        },
+        "description": "Prueba de error: ID que no existe. Debe retornar 404 Not Found."
+      }
+    }
+  ]
+}

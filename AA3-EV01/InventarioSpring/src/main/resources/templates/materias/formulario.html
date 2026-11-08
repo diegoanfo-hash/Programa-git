@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario - Formulario</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { width: 300px; padding: 5px; margin-top: 3px; }
+        button { margin-top: 15px; padding: 8px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        a { display: inline-block; margin-top: 10px; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+
+<h2 th:text="${titulo}">Formulario Materia Prima</h2>
+
+<!-- Formulario vinculado al objeto 'materia' -->
+<form th:action="@{/materias/guardar}" th:object="${materia}" method="post">
+
+    <!-- Campo oculto para el ID (actualización) -->
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required placeholder="Ej: Lamina de acero" />
+
+    <label>Unidad de medida:</label>
+    <input type="text" th:field="*{unidad}" required placeholder="Ej: kg, m2, ml" />
+
+    <label>Cantidad actual:</label>
+    <input type="number" th:field="*{cantidadActual}" required min="0" />
+
+    <label>Cantidad mínima:</label>
+    <input type="number" th:field="*{cantidadMinima}" required min="0" />
+
+    <br>
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="/materias">← Volver a la lista</a>
+
+</body>
+</html>

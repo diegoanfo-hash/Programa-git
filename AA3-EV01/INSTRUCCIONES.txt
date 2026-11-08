@@ -1,0 +1,21 @@
+GA7-220501096-AA3-EV01 - Sistema de Inventario con Spring Boot
+Autor: Diego Andrés Fonseca
+
+REQUISITOS
+- Java 17 o superior
+- Maven 3.8+
+
+COMO EJECUTAR
+1. Abrir terminal en la carpeta InventarioSpring
+2. Ejecutar: mvn spring-boot:run
+3. Abrir navegador en: http://localhost:8080
+
+FUNCIONALIDADES
+- Listar materias primas
+- Registrar nueva materia prima
+- Editar materia prima existente
+- Eliminar materia prima
+- Alerta visual cuando stock esta bajo el minimo
+
+COMO EJECUTAR LAS PRUEBAS
+mvn test

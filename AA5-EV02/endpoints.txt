@@ -1,0 +1,73 @@
+GA7-220501096-AA5-EV02 - Endpoints de la API de Inventario
+Autor: Diego Andrés Fonseca
+Fecha: 2026-11-08
+
+BASE URL: http://localhost:8080
+
+============================
+ENDPOINTS DISPONIBLES
+============================
+
+GET    /api/materias           - Listar todas las materias primas
+GET    /api/materias/{id}      - Obtener una materia prima por ID
+POST   /api/materias           - Crear nueva materia prima
+PUT    /api/materias/{id}      - Actualizar materia prima existente
+DELETE /api/materias/{id}      - Eliminar materia prima
+
+============================
+DETALLE DE CADA ENDPOINT
+============================
+
+1. GET /api/materias
+   Descripcion: Lista completa del inventario
+   Headers: (ninguno requerido)
+   Body: (ninguno)
+   Respuesta exitosa: 200 OK
+   Ejemplo de respuesta:
+   [
+     {"id":1,"nombre":"Lamina de acero","unidad":"kg","cantidadActual":150,"cantidadMinima":50},
+     {"id":2,"nombre":"Vidrio templado","unidad":"m2","cantidadActual":25,"cantidadMinima":30}
+   ]
+
+2. GET /api/materias/{id}
+   Descripcion: Detalle de una materia prima
+   Headers: (ninguno requerido)
+   Parametros de ruta: id (numero entero)
+   Respuesta exitosa: 200 OK
+   Respuesta error: 404 Not Found
+   Ejemplo: GET /api/materias/1
+   Respuesta:
+   {"id":1,"nombre":"Lamina de acero","unidad":"kg","cantidadActual":150,"cantidadMinima":50}
+
+3. POST /api/materias
+   Descripcion: Registra una nueva materia prima
+   Headers: Content-Type: application/json
+   Body (JSON):
+   {
+     "nombre": "Perfil de aluminio",
+     "unidad": "ml",
+     "cantidadActual": 200,
+     "cantidadMinima": 60
+   }
+   Respuesta exitosa: 201 Created
+   Respuesta incluye el ID generado por la base de datos
+
+4. PUT /api/materias/{id}
+   Descripcion: Actualiza todos los campos de un registro
+   Headers: Content-Type: application/json
+   Parametros de ruta: id (numero entero)
+   Body (JSON): misma estructura que POST
+   Respuesta exitosa: 200 OK
+   Respuesta error: 404 Not Found
+
+5. DELETE /api/materias/{id}
+   Descripcion: Elimina un registro del inventario
+   Headers: (ninguno requerido)
+   Parametros de ruta: id (numero entero)
+   Respuesta exitosa: 204 No Content
+   Respuesta error: 404 Not Found
+
+============================
+REPOSITORIO
+============================
+https://github.com/diegoanfo-hash/Programa-git

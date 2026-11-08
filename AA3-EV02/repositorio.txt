@@ -1,0 +1,15 @@
+GA7-220501096-AA3-EV02 - Modulos de software codificados y probados
+Autor: Diego Andrés Fonseca
+Fecha: 2026-11-08
+
+REPOSITORIO
+https://github.com/diegoanfo-hash/Programa-git
+
+NOTA SOBRE EL VIDEO
+Esta evidencia requiere un video demostrando la funcionalidad del modulo.
+Por favor grabe el video ejecutando el proyecto InventarioSpring:
+  1. Ejecute: mvn spring-boot:run
+  2. Abra el navegador en http://localhost:8080
+  3. Muestre cada operacion: listar, registrar, editar, eliminar
+  4. Muestre las alertas de stock bajo minimo
+  5. Ejecute mvn test y muestre los resultados

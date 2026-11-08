@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario - Lista de Materias Primas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .bajo { color: red; font-weight: bold; }
+        a { margin-right: 5px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+
+<h1>Sistema de Inventario - GA7-220501096-AA3-EV01</h1>
+<p>Autor: Diego Andrés Fonseca</p>
+
+<a href="/materias/nuevo">+ Nueva Materia Prima</a>
+<br><br>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Unidad</th>
+        <th>Cantidad Actual</th>
+        <th>Cantidad Mínima</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+    </tr>
+    <!-- Iterar la lista con Thymeleaf -->
+    <tr th:each="mp : ${materias}">
+        <td th:text="${mp.id}"></td>
+        <td th:text="${mp.nombre}"></td>
+        <td th:text="${mp.unidad}"></td>
+        <td th:text="${mp.cantidadActual}"></td>
+        <td th:text="${mp.cantidadMinima}"></td>
+        <td>
+            <span th:if="${mp.estaBajoMinimo()}" class="bajo">⚠ Bajo mínimo</span>
+            <span th:unless="${mp.estaBajoMinimo()}">OK</span>
+        </td>
+        <td>
+            <a th:href="@{/materias/editar/{id}(id=${mp.id})}">Editar</a>
+            <a th:href="@{/materias/eliminar/{id}(id=${mp.id})}"
+               onclick="return confirm('¿Eliminar este registro?')">Eliminar</a>
+        </td>
+    </tr>
+</table>
+
+<p th:if="${#lists.isEmpty(materias)}">No hay registros aún.</p>
+
+</body>
+</html>

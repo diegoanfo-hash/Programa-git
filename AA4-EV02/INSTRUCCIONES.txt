@@ -1,0 +1,28 @@
+GA7-220501096-AA4-EV02 - Componente Frontend React
+Autor: Diego Andrés Fonseca
+
+REQUISITOS
+- Node.js 18 o superior
+- npm 9+
+- El servidor Spring Boot (AA5-EV01) corriendo en http://localhost:8080
+
+COMO EJECUTAR
+1. Abrir terminal en la carpeta InventarioReact
+2. Instalar dependencias: npm install
+3. Iniciar la aplicacion: npm run dev
+4. Abrir navegador en: http://localhost:3000
+
+ESTRUCTURA DEL PROYECTO
+src/
+  main.jsx               - Punto de entrada
+  App.jsx                - Componente raiz con rutas
+  estilos.css            - Estilos globales
+  componentes/
+    MateriaPrimaLista.jsx    - Lista de materias primas
+    MateriaPrimaFormulario.jsx - Formulario crear/editar
+  servicios/
+    materiaPrimaServicio.js  - Funciones de llamada a la API
+
+NOTA
+Este frontend se comunica con la API REST definida en AA5-EV01.
+El proxy de Vite redirige /api -> http://localhost:8080/api
