@@ -1,16 +1,11 @@
-// MateriaPrimaLista.jsx - Muestra la tabla de materias primas
-// Autor: Diego Andrés Fonseca
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { obtenerTodas, eliminar } from '../servicios/materiaPrimaServicio';
 
 function MateriaPrimaLista() {
-  // Estado: lista de materias primas
   const [materias, setMaterias] = useState([]);
-  // Estado: mensaje de error si la carga falla
   const [error, setError] = useState(null);
 
-  // Cargar datos al montar el componente
   useEffect(() => {
     cargarDatos();
   }, []);
@@ -28,7 +23,6 @@ function MateriaPrimaLista() {
     if (!window.confirm('¿Desea eliminar este registro?')) return;
     try {
       await eliminar(id);
-      // Actualizar la lista sin recargar la pagina
       setMaterias(materias.filter(m => m.id !== id));
     } catch (e) {
       alert('Error al eliminar');

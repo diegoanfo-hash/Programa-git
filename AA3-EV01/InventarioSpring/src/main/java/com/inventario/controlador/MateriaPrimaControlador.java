@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-// Controlador MVC: maneja las peticiones HTTP del modulo de inventario
-// Autor: Diego Andrés Fonseca
 @Controller
 @RequestMapping("/materias")
 public class MateriaPrimaControlador {
@@ -18,14 +16,12 @@ public class MateriaPrimaControlador {
     @Autowired
     private MateriaPrimaServicio servicio;
 
-    // GET /materias - lista todos los registros
     @GetMapping
     public String listar(Model modelo) {
         modelo.addAttribute("materias", servicio.obtenerTodos());
         return "materias/lista";
     }
 
-    // GET /materias/nuevo - muestra el formulario de registro
     @GetMapping("/nuevo")
     public String mostrarFormulario(Model modelo) {
         modelo.addAttribute("materia", new MateriaPrima());
@@ -33,7 +29,6 @@ public class MateriaPrimaControlador {
         return "materias/formulario";
     }
 
-    // GET /materias/editar/{id} - muestra formulario con datos existentes
     @GetMapping("/editar/{id}")
     public String mostrarEdicion(@PathVariable Long id, Model modelo) {
         Optional<MateriaPrima> mp = servicio.obtenerPorId(id);
@@ -45,14 +40,12 @@ public class MateriaPrimaControlador {
         return "materias/formulario";
     }
 
-    // POST /materias/guardar - guarda (insertar o actualizar)
     @PostMapping("/guardar")
     public String guardar(@ModelAttribute MateriaPrima mp) {
         servicio.guardar(mp);
         return "redirect:/materias";
     }
 
-    // GET /materias/eliminar/{id} - elimina un registro
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable Long id) {
         servicio.eliminar(id);

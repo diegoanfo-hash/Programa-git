@@ -1,14 +1,11 @@
-// MateriaPrimaFormulario.jsx - Formulario para crear y editar materias primas
-// Autor: Diego Andrés Fonseca
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { obtenerPorId, crear, actualizar } from '../servicios/materiaPrimaServicio';
 
 function MateriaPrimaFormulario() {
   const navigate = useNavigate();
-  const { id } = useParams(); // Si hay ID en la URL, es una edicion
+  const { id } = useParams();
 
-  // Estado del formulario
   const [formulario, setFormulario] = useState({
     nombre: '',
     unidad: '',
@@ -17,7 +14,6 @@ function MateriaPrimaFormulario() {
   });
   const [error, setError] = useState(null);
 
-  // Si hay ID, cargar el registro existente
   useEffect(() => {
     if (id) {
       obtenerPorId(id)
@@ -26,7 +22,6 @@ function MateriaPrimaFormulario() {
     }
   }, [id]);
 
-  // Actualizar el estado cuando el usuario escribe en un campo
   const handleCambio = (e) => {
     const { name, value } = e.target;
     setFormulario(prev => ({
@@ -35,7 +30,6 @@ function MateriaPrimaFormulario() {
     }));
   };
 
-  // Enviar el formulario
   const handleEnviar = async (e) => {
     e.preventDefault();
     try {
@@ -44,7 +38,7 @@ function MateriaPrimaFormulario() {
       } else {
         await crear(formulario);
       }
-      navigate('/'); // Redirigir a la lista
+      navigate('/');
     } catch (err) {
       setError('Error al guardar. Verifique que el servidor esté activo.');
     }

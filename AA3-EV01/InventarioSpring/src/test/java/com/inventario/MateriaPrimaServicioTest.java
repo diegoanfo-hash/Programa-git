@@ -13,9 +13,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Pruebas unitarias del servicio de inventario
-// GA7-220501096-AA3-EV01
-// Autor: Diego Andrés Fonseca
 @SpringBootTest
 class MateriaPrimaServicioTest {
 

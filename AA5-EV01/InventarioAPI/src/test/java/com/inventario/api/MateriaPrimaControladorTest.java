@@ -13,9 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// Pruebas de los endpoints REST con MockMvc
-// GA7-220501096-AA5-EV01
-// Autor: Diego Andrés Fonseca
 @SpringBootTest
 @AutoConfigureMockMvc
 class MateriaPrimaControladorTest {

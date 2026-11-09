@@ -6,8 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-// Entidad JPA - materia prima del inventario
-// Autor: Diego Andrés Fonseca
 @Entity
 @Table(name = "materia_prima")
 public class MateriaPrima {

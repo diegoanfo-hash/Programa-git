@@ -6,8 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-// Entidad JPA que representa una materia prima del inventario
-// Autor: Diego Andrés Fonseca
 @Entity
 @Table(name = "materia_prima")
 public class MateriaPrima {
@@ -16,16 +14,9 @@ public class MateriaPrima {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Nombre del material
     private String nombre;
-
-    // Unidad de medida (kg, m2, ml, etc.)
     private String unidad;
-
-    // Cantidad disponible actualmente
     private int cantidadActual;
-
-    // Cantidad minima requerida
     private int cantidadMinima;
 
     public MateriaPrima() {}
@@ -52,7 +43,6 @@ public class MateriaPrima {
     public int getCantidadMinima() { return cantidadMinima; }
     public void setCantidadMinima(int cantidadMinima) { this.cantidadMinima = cantidadMinima; }
 
-    // Indica si el stock esta por debajo del minimo
     public boolean estaBajoMinimo() {
         return cantidadActual < cantidadMinima;
     }
